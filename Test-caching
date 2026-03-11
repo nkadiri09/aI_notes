@@ -1,0 +1,30 @@
+
+
+```
+curl -X POST "https://<ai_gateway>/model/us.anthropic.claude-sonnet-4-5/invoke" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "anthropic_version": "bedrock-2023-05-31",
+    "max_tokens": 1024,
+    "system": [
+      {
+        "type": "text",
+        "text": "You are a senior software engineer assistant with deep expertise in Java, Spring Boot, AWS, and microservices architecture. You provide concise, accurate, and practical advice. Always include code examples when relevant. Follow best practices and design patterns. Never guess — if unsure, say so.",
+        "cache_control": {
+          "type": "ephemeral"
+        }
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "What is the difference between @RestController and @Controller in Spring Boot?"
+          }
+        ]
+      }
+    ]
+  }'
+```
